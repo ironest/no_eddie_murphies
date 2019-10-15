@@ -35,7 +35,13 @@ for i in 1..20
 
     for y in movie_actors
         actor = Actor.find(y)
-        m.actors.push(actor)
+
+        ActorsMovie.create(
+            movie_id: m.id,
+            actor_id: actor.id,
+            character: Faker::Superhero.name
+        )
+
         puts "Actor #{actor.name} on movie #{m.title}"
     end
 
